@@ -183,7 +183,7 @@ void TreeMenu() {
         case 2:
             std::cout << "Enter value to remove: ";
             std::cin >> value;
-            intTree.remove(value);
+            intTree.Remove(value);
             break;
         case 3:
             std::cout << "Enter value to search: ";
@@ -213,6 +213,11 @@ void TreeMenu() {
             intTree.Display();
             std::cout << "Displaying Tree";
             break;
+        /*case 9:
+            intTree.findmin();
+            std::cout << "Enter value to Remove";
+            break;*/
+
         case 0:
             break;
         default:

@@ -5,51 +5,68 @@ template<typename T>
 CustomTree<T>::CustomTree() : root(nullptr) {}
 
 template<typename T>
-CustomTree<T>::~CustomTree() {
+CustomTree<T>::~CustomTree() 
+{
     clear();
 }
 
 template<typename T>
-void CustomTree<T>::Insert(const T& value) {
+void CustomTree<T>::Insert(const T& value) 
+{
     root = insert(root, value);
 }
 
 template<typename T>
-typename CustomTree<T>::Node* CustomTree<T>::insert(Node* node, const T& value) {
-    if (!node) return new Node(value);
-    if (value < node->data) node->left = insert(node->left, value);
-    else if (value > node->data) node->right = insert(node->right, value);
+typename CustomTree<T>::Node* CustomTree<T>::insert(Node* node, const T& value) 
+{
+    if (!node)
+        return new Node(value);
+    if (value < node->data) 
+        node->left = insert(node->left, value);
+    else if (value > node->data) 
+        node->right = insert(node->right, value);
     return node;
 }
 
 template<typename T>
-bool CustomTree<T>::search(const T& value) {
+bool CustomTree<T>::search(const T& value) 
+{
     Node* current = root;
     while (current) {
-        if (value == current->data) return true;
-        else if (value < current->data) current = current->left;
-        else current = current->right;
+        if (value == current->data) 
+            return true;
+        else if (value < current->data) 
+            current = current->left;
+        else 
+            current = current->right;
     }
     return false;
 }
 
+
 template<typename T>
-void CustomTree<T>::remove(const T& value) {
-    root = remove(root, value);
+typename CustomTree<T>::Node* CustomTree<T>::findMin(Node* node) 
+{
+    while (node && node->left) {
+        node = node->left;
+    }
+    return node;
 }
 
 template<typename T>
-typename CustomTree<T>::Node* CustomTree<T>::findMin(Node* node) {
-    while (node && node->left) node = node->left;
-    return node;
+void CustomTree<T>::Remove(const T& value) 
+{
+    root = remove(root, value);
 }
 
 template<typename T>
 typename CustomTree<T>::Node* CustomTree<T>::remove(Node* node, const T& value) {
     if (!node) return nullptr;
 
-    if (value < node->data) node->left = remove(node->left, value);
-    else if (value > node->data) node->right = remove(node->right, value);
+    if (value < node->data) 
+        node->left = remove(node->left, value);
+    else if (value > node->data) 
+        node->right = remove(node->right, value);
     else {
         if (!node->left) {
             Node* temp = node->right;

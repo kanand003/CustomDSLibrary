@@ -16,7 +16,8 @@ public:
     ~CustomTree();
     void Insert(const T& value);
     bool search(const T& value);
-    void remove(const T& value);
+    void Remove(const T& value);
+    void FindMin();
     void inorder();
     void preorder();
     void postorder();
