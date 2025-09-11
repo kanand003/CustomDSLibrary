@@ -126,6 +126,7 @@
     <ClCompile Include="CustomList.cpp" />
     <ClCompile Include="CustomTree.cpp" />
     <ClCompile Include="CustomVector.cpp" />
+    <ClCompile Include="IDataStructure.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

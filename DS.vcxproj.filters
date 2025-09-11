@@ -27,6 +27,9 @@
     <ClCompile Include="CustomVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IDataStructure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CustomTree.h">

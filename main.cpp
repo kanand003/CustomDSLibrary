@@ -1,6 +1,7 @@
 #include "CustomTree.h"
 #include "CustomList.h"
 #include "CustomVector.h"
+#include <cassert>
 #include <string>
 #include <iostream>
 
@@ -226,7 +227,52 @@ void TreeMenu() {
     } while (choice != 0);
 }
 
-int main() {
+void TestTree() 
+{
+    CustomTree<int> tree;
+
+    tree.Insert(50);
+    tree.Insert(30);
+    tree.Insert(70);
+    tree.Insert(20);
+    tree.Insert(40);
+    tree.Insert(60);
+    tree.Insert(80);
+
+    assert(tree.search(50));
+    assert(tree.search(30));
+    assert(tree.search(80));
+
+    assert(!tree.search(99));
+
+    tree.Remove(20);
+    assert(!tree.search(20));
+
+    tree.Remove(30);
+    assert(!tree.search(30));
+
+    tree.Remove(50);
+    assert(!tree.search(50));
+
+    tree.Remove(100);
+
+    std::cout << "Inorder: ";
+    tree.inorder();
+
+    std::cout << "Preorder: ";
+    tree.preorder();
+
+    std::cout << "Postorder: ";
+    tree.postorder();
+
+    tree.clear();
+    assert(!tree.search(70));  // its empty here
+
+    std::cout << "CustomTree tests passed!\n";
+}
+
+int main() 
+{
     int choice;
 
     do {
@@ -234,6 +280,7 @@ int main() {
         std::cout << "1. Binary Search Tree\n";
         std::cout << "2. Custom List\n";
         std::cout << "3. MyVector\n";
+        std::cout << "3. Test Tree\n";
         std::cout << "0. Exit\n";
         std::cout << "Enter choice: ";
         std::cin >> choice;
@@ -247,6 +294,9 @@ int main() {
             break;
         case 3:
             VectorMenu();
+            break;
+        case 4:
+            TestTree();
             break;
         case 0:
             std::cout << "Exiting...\n";
