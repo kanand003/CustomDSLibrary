@@ -126,13 +126,14 @@
     <ClCompile Include="CustomList.cpp" />
     <ClCompile Include="CustomTree.cpp" />
     <ClCompile Include="CustomVector.cpp" />
-    <ClCompile Include="IDataStructure.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CustomList.h" />
     <ClInclude Include="CustomTree.h" />
     <ClInclude Include="CustomVector.h" />
+    <ClInclude Include="IDataStructure.h" />
+    <ClInclude Include="TreeAdapter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

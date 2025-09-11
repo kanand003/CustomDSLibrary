@@ -4,6 +4,8 @@
 #include <cassert>
 #include <string>
 #include <iostream>
+#include "TreeAdapter.h"
+#include "IDataStructure.h"
 
 
 
@@ -269,6 +271,21 @@ void TestTree()
     assert(!tree.search(70));  // its empty here
 
     std::cout << "CustomTree tests passed!\n";
+}
+
+void TestTreeAdapter()
+{
+    std::unique_ptr<IDataStructure> DS = std::make_unique<TreeAdapter>();
+
+    DS->insert(50);
+    DS->insert(30);
+
+    DS->display();
+
+    std::cout << "Search 30: " << (DS->search(30) ? "Found" : "Not Found") << std::endl;
+
+    DS->remove(30);
+    DS->display();
 }
 
 int main() 
